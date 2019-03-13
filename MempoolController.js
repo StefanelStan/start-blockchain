@@ -6,14 +6,15 @@ const bitcoinMessage = require('bitcoinjs-message');
 
 //Add to blockchain
 const blockchain = new Blockchain();
-
-
+const {MempoolManager} = require('./MempoolManager');
+let mempoolManager;
 class Mempool {
 
     constructor(server) {
         this.server = server;
-        this.invalidMempool = [];
-        this.validMempool = [];
+        // this.invalidMempool = [];
+        // this.validMempool = [];
+        this.mempoolManager = new MempoolManager(); //and you use the mempoolManager here to deal with the requests low level stuff.
         this.AddRequestValidation();
         this.validateRequestByWallet();
         this.verifyAddressRequest();
