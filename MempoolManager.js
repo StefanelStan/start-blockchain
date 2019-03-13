@@ -1,3 +1,5 @@
+const bitcoinMessage = require('bitcoinjs-message');
+
 class MempoolManager {
     constructor (){
         this.unvalidatedRequests = new Map();
